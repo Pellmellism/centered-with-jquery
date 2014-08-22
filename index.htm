@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		Centered With jQuery
+	</title>
+<style>
+			body {
+			overflow:hidden;
+			margin:0;
+			padding:0;
+			color:#fff;
+			}
+			div {
+			margin:0;
+			padding:0;	
+			}
+			.testbox {
+			width: 20px;
+			height: 20px;
+			background-color: white;
+			}
+
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+    
+        
+
+        <div id="top"><div class="ultracentered testbox"></div></div>
+        <div id="left"><div class="ultracentered testbox"></div></div>
+        <div id="right"><div class="ultracentered testbox"></div></div>
+        <div id="bottom"><div class="ultracentered testbox"></div></div>
+
+    
+
+
+<script>
+	
+$( document ).ready(function() {
+var height = $( window ).height();
+var width = $( window ).width();
+var half = width / 2;
+var footerheight = height * .2;
+var columnheight = height * .6;
+
+
+       $("#top").css({
+                     width: '100%', 
+                     display: 'block',
+                     float: 'right',
+                     height: footerheight,
+                     'background-color':'red',
+               });
+               
+       $("#left").css({
+                     width: half, 
+                     float: 'left',
+                     height: columnheight,
+                     'background-color':'green',
+               });
+       $("#right").css({
+                     width: half, 
+                     float: 'right',
+                     height: columnheight,
+                     'background-color':'blue',
+               });
+               
+       $("#bottom").css({
+                     width: '100%', 
+                     height: footerheight,
+                     float: 'right',
+                     'background-color':'orange',
+               });
+         
+$.each($('.ultracentered'), function(index, value) { 
+    //center stuff inside each ultracentered div 
+    var obj = $( this );
+    var thisheight = $( obj ).height();
+	var thiswidth = $( obj ).width();
+	var thishalfwidth = thiswidth / 2;
+	var thishalfheight = thisheight / 2;
+	
+	var parentwidth = $( obj ).parent().width()
+	var thisparentwidthhalf = parentwidth / 2;
+	var thisLEFTstartpoint = thisparentwidthhalf - thishalfwidth;
+	
+	var parentheight = $( obj ).parent().height()
+	var thisparentheighthalf = parentheight / 2;
+	var thisTOPstartpoint = thisparentheighthalf - thishalfheight;
+
+
+       $( obj ).css({
+       				
+                     "margin-top": thisTOPstartpoint,
+                     "margin-left": thisLEFTstartpoint,
+               });
+    
+});               
+
+
+});	
+</script>
+</body>
+</html>
